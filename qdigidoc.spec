@@ -1,7 +1,7 @@
 Summary:	Estonian digital signature application
 Name:		qdigidoc
 Version:	0.4.0
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		X11/Applications
 URL:		http://code.google.com/p/esteid/
@@ -16,6 +16,7 @@ BuildRequires:	libdigidocpp-devel
 BuildRequires:	openldap-devel
 BuildRequires:	openssl-devel
 BuildRequires:	qt4-build
+BuildRequires:	qt4-linguist
 BuildRequires:	rpmbuild(macros) >= 1.596
 Requires:	desktop-file-utils
 Requires:	hicolor-icon-theme
@@ -91,4 +92,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/nautilus/extensions-2.0/python/*
 
 %files -n kde4-konqueror-plugin-%{name}
+%defattr(644,root,root,755)
 %{_datadir}/kde4/services/*.desktop
