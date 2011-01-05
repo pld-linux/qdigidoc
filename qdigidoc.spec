@@ -1,3 +1,4 @@
+%define		qtver	4.4.0
 Summary:	Estonian digital signature application
 Name:		qdigidoc
 Version:	0.4.0
@@ -7,7 +8,7 @@ Group:		X11/Applications
 URL:		http://code.google.com/p/esteid/
 Source0:	http://esteid.googlecode.com/files/%{name}-%{version}.tar.bz2
 # Source0-md5:	bf6fc905f5c806c1309d5e2861fe840e
-BuildRequires:	QtWebKit-devel
+BuildRequires:	QtWebKit-devel >= %{qtver}
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
@@ -15,8 +16,8 @@ BuildRequires:	libdigidoc-devel
 BuildRequires:	libdigidocpp-devel
 BuildRequires:	openldap-devel
 BuildRequires:	openssl-devel
-BuildRequires:	qt4-build
-BuildRequires:	qt4-linguist
+BuildRequires:	qt4-build >= %{qtver}
+BuildRequires:	qt4-linguist >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.596
 Requires:	desktop-file-utils
 Requires:	hicolor-icon-theme
