@@ -2,12 +2,13 @@
 Summary:	Estonian digital signature application
 Name:		qdigidoc
 Version:	0.4.0
-Release:	2
+Release:	3
 License:	LGPL v2+
 Group:		X11/Applications
 URL:		http://code.google.com/p/esteid/
 Source0:	http://esteid.googlecode.com/files/%{name}-%{version}.tar.bz2
 # Source0-md5:	bf6fc905f5c806c1309d5e2861fe840e
+Patch0:		desktop.patch
 BuildRequires:	QtWebKit-devel >= %{qtver}
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
@@ -50,6 +51,7 @@ This package contains the qdigidoc extension for Konqueror.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 install -d build
