@@ -2,7 +2,7 @@
 Summary:	Estonian digital signature application
 Name:		qdigidoc
 Version:	0.4.0
-Release:	3
+Release:	4
 License:	LGPL v2+
 Group:		X11/Applications
 URL:		http://code.google.com/p/esteid/
@@ -20,8 +20,9 @@ BuildRequires:	openssl-devel
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-linguist >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.596
+Requires(post,postun):	gtk-update-icon-cache
+Requires(post,postun):	hicolor-icon-theme
 Requires:	desktop-file-utils
-Requires:	hicolor-icon-theme
 Requires:	shared-mime-info
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
