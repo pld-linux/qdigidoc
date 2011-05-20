@@ -2,13 +2,14 @@
 Summary:	Estonian digital signature application
 Name:		qdigidoc
 Version:	0.4.0
-Release:	4
+Release:	5
 License:	LGPL v2+
 Group:		X11/Applications
 URL:		http://code.google.com/p/esteid/
 Source0:	http://esteid.googlecode.com/files/%{name}-%{version}.tar.bz2
 # Source0-md5:	bf6fc905f5c806c1309d5e2861fe840e
 Patch0:		desktop.patch
+Patch1:		%{name}-nautilus-extensions-dir.patch
 BuildRequires:	QtWebKit-devel >= %{qtver}
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
@@ -21,8 +22,8 @@ BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-linguist >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.596
 Requires(post,postun):	gtk-update-icon-cache
-Requires(post,postun):	hicolor-icon-theme
 Requires:	desktop-file-utils
+Requires:	hicolor-icon-theme
 Requires:	shared-mime-info
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -36,7 +37,8 @@ legally binding digital signatures.
 Summary:	Nautilus extension for %{name}
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
-Requires:	nautilus-python
+Requires:	nautilus-python >= 1.0
+Requires:	python-pygobject
 
 %description -n nautilus-%{name}
 This package contains the qdigidoc extension for the nautilus file
@@ -53,6 +55,7 @@ This package contains the qdigidoc extension for Konqueror.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 install -d build
@@ -93,7 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n nautilus-%{name} -f nautilus-qdigidoc.lang
 %defattr(644,root,root,755)
-%{_libdir}/nautilus/extensions-2.0/python/*
+%{_datadir}/nautilus-python/extensions/*.py
 
 %files -n kde4-konqueror-plugin-%{name}
 %defattr(644,root,root,755)
