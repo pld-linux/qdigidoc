@@ -1,15 +1,14 @@
 %define		qtver	4.4.0
 Summary:	Estonian digital signature application
 Name:		qdigidoc
-Version:	0.4.0
-Release:	6
+Version:	0.4.1
+Release:	1
 License:	LGPL v2+
 Group:		X11/Applications
 URL:		http://code.google.com/p/esteid/
 Source0:	http://esteid.googlecode.com/files/%{name}-%{version}.tar.bz2
-# Source0-md5:	bf6fc905f5c806c1309d5e2861fe840e
+# Source0-md5:	a4bb53bcd00a4b1914c028e3bd2b3872
 Patch0:		desktop.patch
-Patch1:		%{name}-nautilus-extensions-dir.patch
 BuildRequires:	QtWebKit-devel >= %{qtver}
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
@@ -55,7 +54,6 @@ This package contains the qdigidoc extension for Konqueror.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 install -d build
@@ -93,6 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/*.desktop
 %{_datadir}/mime/packages/*.xml
 %{_iconsdir}/hicolor/*/*/*.png
+%{_mandir}/man1/qdig*
 
 %files -n nautilus-%{name} -f nautilus-qdigidoc.lang
 %defattr(644,root,root,755)
