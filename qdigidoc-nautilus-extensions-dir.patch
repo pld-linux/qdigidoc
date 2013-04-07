@@ -1,8 +1,0 @@
---- qdigidoc-0.4.0/client/nautilus/CMakeLists.txt.orig	2011-05-20 20:43:28.408950058 +0200
-+++ qdigidoc-0.4.0/client/nautilus/CMakeLists.txt	2011-05-20 20:44:34.031927880 +0200
-@@ -6,4 +6,4 @@ find_package(Gettext)
- file(GLOB PO_FILES po/*.po)
- gettext_create_translations(po/nautilus-qdigidoc.pot ALL ${PO_FILES})
- 
--install(FILES nautilus-qdigidoc.py DESTINATION ${LIB_INSTALL_DIR}/nautilus/extensions-2.0/python/)
-+install(FILES nautilus-qdigidoc.py DESTINATION ${SHARE_INSTALL_PREFIX}/nautilus-python/extensions/)
