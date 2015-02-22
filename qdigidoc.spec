@@ -1,20 +1,20 @@
 %define		qtver	4.4.0
 Summary:	Estonian digital signature application
 Name:		qdigidoc
-Version:	0.4.1
-Release:	2
+Version:	3.9.1.1369
+Release:	0.1
 License:	LGPL v2+
 Group:		X11/Applications
-URL:		http://code.google.com/p/esteid/
-Source0:	http://esteid.googlecode.com/files/%{name}-%{version}.tar.bz2
-# Source0-md5:	a4bb53bcd00a4b1914c028e3bd2b3872
+Source0:	https://installer.id.ee/media/sources/%{name}-%{version}.tar.gz
+# Source0-md5:	e965c146aa787f94b876dffce4f29190
 Patch0:		desktop.patch
+Patch1:		0001-fix-cmake-flags.patch
+URL:		http://www.ria.ee/
 BuildRequires:	QtWebKit-devel >= %{qtver}
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
-BuildRequires:	libdigidoc-devel
-BuildRequires:	libdigidocpp-devel
+BuildRequires:	libdigidocpp-devel >= 3.9
 BuildRequires:	openldap-devel
 BuildRequires:	openssl-devel
 BuildRequires:	qt4-build >= %{qtver}
@@ -23,6 +23,7 @@ BuildRequires:	rpmbuild(macros) >= 1.596
 Requires(post,postun):	gtk-update-icon-cache
 Requires:	desktop-file-utils
 Requires:	hicolor-icon-theme
+Requires:	libdigidocpp >= 3.9
 Requires:	shared-mime-info
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -54,11 +55,16 @@ This package contains the qdigidoc extension for Konqueror.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 install -d build
 cd build
-%cmake ..
+%cmake \
+%ifarch %{arm} %{ix86} %{x8664}
+	-DBREAKPAD=ON \
+%endif
+	..
 %{__make}
 
 %install
