@@ -1,4 +1,4 @@
-%define		qtver	4.4.0
+%define		qtver	5.8.0
 Summary:	Estonian digital signature application
 Name:		qdigidoc
 Version:	3.12.6
@@ -9,7 +9,11 @@ Source0:	https://github.com/open-eid/qdigidoc/releases/download/v%{version}/%{na
 # Source0-md5:	b0a989d846f76901bc2951e17622fe12
 Patch0:		desktop.patch
 URL:		https://github.com/open-eid/
-BuildRequires:	QtWebKit-devel >= %{qtver}
+BuildRequires:	Qt5Core-devel >= %{qtver}
+BuildRequires:	Qt5Gui-devel >= %{qtver}
+BuildRequires:	Qt5Network-devel >= %{qtver}
+BuildRequires:	Qt5PrintSupport-devel >= %{qtver}
+BuildRequires:	Qt5Widgets-devel >= %{qtver}
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
@@ -17,8 +21,9 @@ BuildRequires:	libdigidocpp-devel >= 3.12
 BuildRequires:	openldap-devel
 BuildRequires:	openssl-devel
 BuildRequires:	pkgconfig
-BuildRequires:	qt4-build >= %{qtver}
-BuildRequires:	qt4-linguist >= %{qtver}
+BuildRequires:	qt5-build >= %{qtver}
+BuildRequires:	qt5-linguist >= %{qtver}
+BuildRequires:	qt5-qmake >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.596
 Requires(post,postun):	gtk-update-icon-cache
 Requires:	desktop-file-utils
