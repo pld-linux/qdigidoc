@@ -16,6 +16,7 @@ BuildRequires:	gettext
 BuildRequires:	libdigidocpp-devel >= 3.9
 BuildRequires:	openldap-devel
 BuildRequires:	openssl-devel
+BuildRequires:	pkgconfig
 BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-linguist >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.596
