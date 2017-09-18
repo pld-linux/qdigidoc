@@ -2,7 +2,7 @@
 Summary:	Estonian digital signature application
 Name:		qdigidoc
 Version:	0.4.1
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		X11/Applications
 URL:		http://code.google.com/p/esteid/
