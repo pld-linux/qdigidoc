@@ -20,6 +20,7 @@ BuildRequires:	gettext
 BuildRequires:	libdigidocpp-devel >= 3.12
 BuildRequires:	openldap-devel
 BuildRequires:	openssl-devel
+BuildRequires:	pcsc-lite-devel
 BuildRequires:	pkgconfig
 BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	qt5-linguist >= %{qtver}
