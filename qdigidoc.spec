@@ -1,15 +1,14 @@
 %define		qtver	4.4.0
 Summary:	Estonian digital signature application
 Name:		qdigidoc
-Version:	3.9.1.1369
-Release:	0.1
+Version:	3.12.6
+Release:	1
 License:	LGPL v2+
 Group:		X11/Applications
-Source0:	https://installer.id.ee/media/sources/%{name}-%{version}.tar.gz
-# Source0-md5:	e965c146aa787f94b876dffce4f29190
+Source0:	https://github.com/open-eid/qdigidoc/releases/download/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	b0a989d846f76901bc2951e17622fe12
 Patch0:		desktop.patch
-Patch1:		0001-fix-cmake-flags.patch
-URL:		http://www.ria.ee/
+URL:		https://github.com/open-eid/
 BuildRequires:	QtWebKit-devel >= %{qtver}
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
@@ -55,14 +54,13 @@ This package contains the qdigidoc extension for Konqueror.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 install -d build
 cd build
 %cmake \
 %ifarch %{arm} %{ix86} %{x8664}
-	-DBREAKPAD=ON \
+	-DBREAKPAD=OFF \
 %endif
 	..
 %{__make}
@@ -92,12 +90,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README
+%doc AUTHORS README.md CONTRIBUTING.md
 %attr(755,root,root) %{_bindir}/*
-%{_desktopdir}/*.desktop
-%{_datadir}/mime/packages/*.xml
-%{_iconsdir}/hicolor/*/*/*.png
 %{_mandir}/man1/qdig*
+%{_desktopdir}/*.desktop
+%{_iconsdir}/hicolor/*/*/*.png
+%{_datadir}/mime/packages/*.xml
+%{_datadir}/appdata/qdigidoc-client.appdata.xml
+%{_datadir}/appdata/qdigidoc-cypto.appdata.xml
 
 %files -n nautilus-%{name} -f nautilus-qdigidoc.lang
 %defattr(644,root,root,755)
