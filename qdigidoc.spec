@@ -13,7 +13,7 @@ BuildRequires:	QtWebKit-devel >= %{qtver}
 BuildRequires:	cmake
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
-BuildRequires:	libdigidocpp-devel >= 3.9
+BuildRequires:	libdigidocpp-devel >= 3.12
 BuildRequires:	openldap-devel
 BuildRequires:	openssl-devel
 BuildRequires:	pkgconfig
@@ -23,7 +23,6 @@ BuildRequires:	rpmbuild(macros) >= 1.596
 Requires(post,postun):	gtk-update-icon-cache
 Requires:	desktop-file-utils
 Requires:	hicolor-icon-theme
-Requires:	libdigidocpp >= 3.9
 Requires:	shared-mime-info
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
