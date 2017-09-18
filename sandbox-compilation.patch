@@ -1,0 +1,44 @@
+diff -Naur qdigidoc-3.12.2_orig/client/CMakeLists.txt qdigidoc-3.12.2_patched/client/CMakeLists.txt
+--- qdigidoc-3.12.2_orig/client/CMakeLists.txt	2016-07-10 10:42:40.000000000 +0300
++++ qdigidoc-3.12.2_patched/client/CMakeLists.txt	2016-07-10 13:00:07.208755715 +0300
+@@ -1,14 +1,5 @@
+ set_app_name( PROGNAME qdigidocclient )
+ 
+-add_executable( TSLDownload TSLDownload.cpp )
+-target_link_libraries( TSLDownload Qt5::Network )
+-add_custom_command(
+-	OUTPUT TSL.qrc tl-mp.xml EE.xml
+-	DEPENDS TSLDownload
+-	COMMAND $<TARGET_FILE:TSLDownload> "${CMAKE_CURRENT_BINARY_DIR}" EE
+-	WORKING_DIRECTORY ${_qt5Core_install_prefix}/bin
+-)
+-
+ add_definitions( -DPKCS11_MODULE="${PKCS11_MODULE}" )
+ include_directories( ${CMAKE_SOURCE_DIR} ${CMAKE_SOURCE_DIR}/common ${OPENSSL_INCLUDE_DIR} )
+ 
+@@ -58,6 +49,7 @@
+ 	Qt5::PrintSupport
+ 	${LIBDIGIDOCPP_LIBRARY}
+ 	${ADDITIONAL_LIBRARIES}
++	pthread
+ )
+ 
+ if( APPLE )
+diff -Naur qdigidoc-3.12.2_orig/common/CMakeLists.txt qdigidoc-3.12.2_patched/common/CMakeLists.txt
+--- qdigidoc-3.12.2_orig/common/CMakeLists.txt	2016-07-10 10:42:42.000000000 +0300
++++ qdigidoc-3.12.2_patched/common/CMakeLists.txt	2016-07-10 13:02:48.969572573 +0300
+@@ -19,13 +19,8 @@
+ 	endif()
+ 	add_definitions( -DCONFIG_URL="${CONFIG_URL}" )
+ 	list( APPEND SOURCES Configuration.cpp )
+-	file( DOWNLOAD ${CONFIG_URL} ${CMAKE_CURRENT_BINARY_DIR}/config.json )
+-	string( REPLACE ".json" ".rsa" RSA_URL ${CONFIG_URL} )
+-	file( DOWNLOAD ${RSA_URL} ${CMAKE_CURRENT_BINARY_DIR}/config.rsa )
+-	string( REPLACE ".json" ".pub" PUB_URL ${CONFIG_URL} )
+-	file( DOWNLOAD ${PUB_URL} ${CMAKE_CURRENT_BINARY_DIR}/config.pub )
+-	configure_file( config.qrc config.qrc COPYONLY )
+ 	qt5_add_resources( SOURCES ${CMAKE_CURRENT_BINARY_DIR}/config.qrc )
++	list( APPEND RC_FILES config.qrc )
+ endif()
+ 
+ if( WIN32 )

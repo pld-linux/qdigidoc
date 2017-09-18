@@ -7,7 +7,20 @@ License:	LGPL v2+
 Group:		X11/Applications
 Source0:	https://github.com/open-eid/qdigidoc/releases/download/v%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	b0a989d846f76901bc2951e17622fe12
+Source1:	https://id.eesti.ee/config.json
+# Source1-md5:	63f710daa62f532d9d43d4631e431295
+Source2:	https://id.eesti.ee/config.rsa
+# Source2-md5:	d3b47de630a20013a8bab464045b5607
+Source3:	https://id.eesti.ee/config.pub
+# Source3-md5:	b3931bf5a8a2f19cb00e53afd89e440d
+Source4:	TSL.qrc
+Source5:	config.qrc
+Source6:	tl-mp.xml
+# Source6-md5:	11235a4b7e7fbe7a5f5851e5c33ecc34
+Source7:	EE.xml
+# Source7-md5:	e15d2f875b47365970ced4697843e7c1
 Patch0:		desktop.patch
+Patch1:		sandbox-compilation.patch
 URL:		https://github.com/open-eid/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
@@ -60,9 +73,18 @@ This package contains the qdigidoc extension for Konqueror.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+
+install -d build/{common,client}
+cp %{SOURCE1} build/common
+cp %{SOURCE2} build/common
+cp %{SOURCE3} build/common
+cp %{SOURCE4} build/client
+cp %{SOURCE5} build/common
+cp %{SOURCE6} build/client
+cp %{SOURCE7} build/client
 
 %build
-install -d build
 cd build
 %cmake \
 %ifarch %{arm} %{ix86} %{x8664}
