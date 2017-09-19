@@ -15,7 +15,7 @@ Source3:	https://id.eesti.ee/config.pub
 # Source3-md5:	b3931bf5a8a2f19cb00e53afd89e440d
 Source4:	TSL.qrc
 Source5:	config.qrc
-Source6:	tl-mp.xml
+Source6:	https://ec.europa.eu/information_society/policy/esignature/trusted-list/tl-mp.xml
 # Source6-md5:	11235a4b7e7fbe7a5f5851e5c33ecc34
 Source7:	EE.xml
 # Source7-md5:	e15d2f875b47365970ced4697843e7c1
