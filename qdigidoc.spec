@@ -72,9 +72,6 @@ This package contains the qdigidoc extension for Konqueror.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-
 install -d build/{common,client}
 cp %{SOURCE1} build/common
 cp %{SOURCE2} build/common
@@ -83,6 +80,9 @@ cp %{SOURCE4} build/client
 cp %{SOURCE5} build/common
 cp %{SOURCE6} build/client
 cp %{SOURCE7} build/client
+
+%patch0 -p1
+%patch1 -p1
 
 %build
 cd build
