@@ -1,0 +1,65 @@
+diff -ur qdigidoc-3.13.6/crypto.org/MainWindow.cpp qdigidoc-3.13.6/crypto/MainWindow.cpp
+--- qdigidoc-3.13.6/crypto.org/MainWindow.cpp	2018-04-06 13:46:51.000000000 +0200
++++ qdigidoc-3.13.6/crypto/MainWindow.cpp	2018-09-28 06:38:13.427880748 +0200
+@@ -37,6 +37,8 @@
+ #include <QtNetwork/QSslKey>
+ #include <QtWidgets/QMessageBox>
+ #include <QtWidgets/QProgressBar>
++#include <QtWidgets/QButtonGroup>
++#include <QtWidgets/QActionGroup>
+ #include <QtWidgets/QProgressDialog>
+ 
+ #if QT_VERSION < 0x050700
+Only in qdigidoc-3.13.6/crypto: MainWindow.cpp~
+diff -ur qdigidoc-3.13.6/crypto.org/MainWindow.h qdigidoc-3.13.6/crypto/MainWindow.h
+--- qdigidoc-3.13.6/crypto.org/MainWindow.h	2018-04-06 13:46:51.000000000 +0200
++++ qdigidoc-3.13.6/crypto/MainWindow.h	2018-09-28 06:45:43.480974477 +0200
+@@ -23,6 +23,8 @@
+ 
+ class CKey;
+ class CryptoDoc;
++class QActionGroup;
++class QButtonGroup;
+ 
+ namespace Crypto {
+ 
+Only in qdigidoc-3.13.6/crypto: MainWindow.h~
+diff -ur qdigidoc-3.13.6/client.org/Application.cpp qdigidoc-3.13.6/client/Application.cpp
+--- qdigidoc-3.13.6/client.org/Application.cpp	2018-04-06 13:46:51.000000000 +0200
++++ qdigidoc-3.13.6/client/Application.cpp	2018-09-28 06:47:13.603600046 +0200
+@@ -57,6 +57,8 @@
+ #include <QtWidgets/QMessageBox>
+ #include <QtWidgets/QProgressBar>
+ #include <QtWidgets/QProgressDialog>
++#include <QtWidgets/QButtonGroup>
++#include <QtWidgets/QActionGroup>
+ 
+ #if defined(Q_OS_MAC)
+ #include <common/MacMenuBar.h>
+Only in qdigidoc-3.13.6/client: Application.cpp~
+diff -ur qdigidoc-3.13.6/client.org/MainWindow.cpp qdigidoc-3.13.6/client/MainWindow.cpp
+--- qdigidoc-3.13.6/client.org/MainWindow.cpp	2018-04-06 13:46:51.000000000 +0200
++++ qdigidoc-3.13.6/client/MainWindow.cpp	2018-09-28 06:49:05.776881320 +0200
+@@ -46,6 +46,8 @@
+ #include <QtPrintSupport/QPrintPreviewDialog>
+ #include <QtWidgets/QCompleter>
+ #include <QtWidgets/QMessageBox>
++#include <QtWidgets/QButtonGroup>
++#include <QtWidgets/QActionGroup>
+ 
+ const int MainWindow::SIGNATURE_COL_HDR_WIDTH = 274;
+ 
+Only in qdigidoc-3.13.6/client: MainWindow.cpp~
+diff -ur qdigidoc-3.13.6/client.org/MainWindow.h qdigidoc-3.13.6/client/MainWindow.h
+--- qdigidoc-3.13.6/client.org/MainWindow.h	2018-04-06 13:46:51.000000000 +0200
++++ qdigidoc-3.13.6/client/MainWindow.h	2018-09-28 06:48:07.425174425 +0200
+@@ -25,6 +25,8 @@
+ 
+ class DigiDoc;
+ class QPrinter;
++class QActionGroup;
++class QButtonGroup;
+ 
+ class MainWindow: public QWidget, private Ui::MainWindow
+ {
+Only in qdigidoc-3.13.6/client: MainWindow.h~

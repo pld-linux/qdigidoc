@@ -1,12 +1,12 @@
 --- qdigidoc-3.12.6/client/qdigidoc-client.desktop~	2017-02-14 18:27:20.000000000 +0200
 +++ qdigidoc-3.12.6/client/qdigidoc-client.desktop	2017-09-18 23:34:58.220714103 +0300
-@@ -9,5 +9,5 @@
+@@ -9,5 +9,5 @@ Name=DigiDoc Client
  Name[et]=DigiDoc klient
  Name[ru]=DigiDoc клиент
  
 -Categories=Qt;Office;
 +Categories=Qt;Office;Security;Utility;
- MimeType=application/vnd.etsi.asic-e+zip;application/x-ddoc;application/x-p12d;
+ MimeType=application/vnd.etsi.asic-e+zip;application/vnd.etsi.asic-s+zip;application/x-ddoc;application/vnd.lt.archyvai.adoc-2008;application/x-p12d;
 --- qdigidoc-0.4.0/crypto/qdigidoc-crypto.desktop~	2009-11-03 13:29:39.000000000 +0200
 +++ qdigidoc-0.4.0/crypto/qdigidoc-crypto.desktop	2011-01-06 00:09:25.949079741 +0200
 @@ -9,5 +9,5 @@
