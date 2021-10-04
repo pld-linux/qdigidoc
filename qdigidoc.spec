@@ -2,7 +2,7 @@
 Summary:	Estonian digital signature application
 Name:		qdigidoc
 Version:	3.13.6
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		X11/Applications
 Source0:	https://github.com/open-eid/qdigidoc/releases/download/v%{version}/%{name}-%{version}.tar.gz

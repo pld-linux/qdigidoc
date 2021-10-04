@@ -1,5 +1,6 @@
---- qdigidoc-3.12.6/client/qdigidoc-client.desktop~	2017-02-14 18:27:20.000000000 +0200
-+++ qdigidoc-3.12.6/client/qdigidoc-client.desktop	2017-09-18 23:34:58.220714103 +0300
+diff -urNp -x '*.orig' qdigidoc-3.13.6.org/client/qdigidoc-client.desktop qdigidoc-3.13.6/client/qdigidoc-client.desktop
+--- qdigidoc-3.13.6.org/client/qdigidoc-client.desktop	2018-04-06 13:46:51.000000000 +0200
++++ qdigidoc-3.13.6/client/qdigidoc-client.desktop	2021-10-04 09:28:10.407102895 +0200
 @@ -9,5 +9,5 @@ Name=DigiDoc Client
  Name[et]=DigiDoc klient
  Name[ru]=DigiDoc клиент
@@ -7,11 +8,12 @@
 -Categories=Qt;Office;
 +Categories=Qt;Office;Security;Utility;
  MimeType=application/vnd.etsi.asic-e+zip;application/vnd.etsi.asic-s+zip;application/x-ddoc;application/vnd.lt.archyvai.adoc-2008;application/x-p12d;
---- qdigidoc-0.4.0/crypto/qdigidoc-crypto.desktop~	2009-11-03 13:29:39.000000000 +0200
-+++ qdigidoc-0.4.0/crypto/qdigidoc-crypto.desktop	2011-01-06 00:09:25.949079741 +0200
-@@ -9,5 +9,5 @@
- Name[et]=DigiDoc3 krüpto
- Name[ru]=DigiDoc3 Crypto
+diff -urNp -x '*.orig' qdigidoc-3.13.6.org/crypto/qdigidoc-crypto.desktop qdigidoc-3.13.6/crypto/qdigidoc-crypto.desktop
+--- qdigidoc-3.13.6.org/crypto/qdigidoc-crypto.desktop	2018-04-06 13:46:51.000000000 +0200
++++ qdigidoc-3.13.6/crypto/qdigidoc-crypto.desktop	2021-10-04 09:28:10.407102895 +0200
+@@ -12,5 +12,5 @@ Name[ru]=DigiDoc Crypto
+ Keywords=Crypto;Digital;Signature;
+ Keywords[et_EE]=Krüpto;Digitaalne;Allkiri;
  
 -Categories=Qt;Office;
 +Categories=Qt;Office;Security;Utility;
