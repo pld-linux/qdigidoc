@@ -82,9 +82,9 @@ cp %{SOURCE5} build/common
 cp %{SOURCE6} build/client
 cp %{SOURCE7} build/client
 
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
+%patch -P0 -p1
+%patch -P1 -p1
+%patch -P2 -p1
 
 %build
 cd build
