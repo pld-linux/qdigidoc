@@ -1,0 +1,11 @@
+--- qdigidoc-3.13.6/common/QPCSC.cpp~	2018-04-06 13:46:52.000000000 +0200
++++ qdigidoc-3.13.6/common/QPCSC.cpp	2025-12-06 12:47:32.196653714 +0100
+@@ -432,7 +432,7 @@
+ 	if(!d->d->context)
+ 		return false;
+ 	d->state.dwCurrentState = d->state.dwEventState; //(currentReaderCount << 16)
+-	DWORD err = SC(GetStatusChange, d->d->context, msec, &d->state, 1); //INFINITE
++	LONG err = SC(GetStatusChange, d->d->context, msec, &d->state, 1); //INFINITE
+ 	switch(err) {
+ 	case SCARD_S_SUCCESS: return true;
+ 	case SCARD_E_TIMEOUT: return msec == 0;

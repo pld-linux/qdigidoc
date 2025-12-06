@@ -2,7 +2,7 @@
 Summary:	Estonian digital signature application
 Name:		qdigidoc
 Version:	3.13.6
-Release:	3
+Release:	4
 License:	LGPL v2+
 Group:		X11/Applications
 Source0:	https://github.com/open-eid/qdigidoc/releases/download/v%{version}/%{name}-%{version}.tar.gz
@@ -22,6 +22,7 @@ Source7:	EE.xml
 Patch0:		desktop.patch
 Patch1:		sandbox-compilation.patch
 Patch2:		build.patch
+Patch3:		types.patch
 URL:		https://github.com/open-eid/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
@@ -85,6 +86,7 @@ cp %{SOURCE7} build/client
 %patch -P0 -p1
 %patch -P1 -p1
 %patch -P2 -p1
+%patch -P3 -p1
 
 %build
 cd build
